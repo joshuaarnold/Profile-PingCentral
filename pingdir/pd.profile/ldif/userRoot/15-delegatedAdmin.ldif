@@ -1,0 +1,70 @@
+dn: ou=Administrators,${USER_BASE_DN}
+objectClass: organizationalUnit
+objectClass: top
+aci: (targetattr="*")(version 3.0; acl "Allow the pingfederate user to do everything in this branch"; allow(all) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
+aci: (targetattr="isMemberOf")(version 3.0; acl "Allow the pingfederate user to get memberships"; allow (read) userdn="ldap:///cn=pingfederate,cn=root dns,cn=config";)
+ou: Administrators
+
+dn: uid=superadmin,ou=Administrators,${USER_BASE_DN}
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: pf-connected-identities
+sn: Super
+givenName: Administrator
+cn: Super Administrator
+uid: superadmin
+userPassword: 2FederateM0re
+pf-connected-identity: auth-source=pf-local-identity:user-id=superadmin
+employeeType: IAM-Admin
+
+dn: uid=useradmin,ou=Administrators,${USER_BASE_DN}
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: pf-connected-identities
+sn: User
+cn: User Administrator
+uid: useradmin
+userPassword: 2FederateM0re
+pf-connected-identity: auth-source=pf-local-identity:user-id=useradmin
+
+dn: uid=appowner1,ou=people,${USER_BASE_DN}
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: pf-connected-identities
+sn: Owner1
+givenName: Application
+cn: App Owner1
+uid: appowner1
+userPassword: 2FederateM0re
+pf-connected-identity: auth-source=pf-local-identity:user-id=appowner1
+employeeType: Application-Owner
+
+dn: uid=user1,ou=people,${USER_BASE_DN}
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: pf-connected-identities
+sn: User 1
+cn: User 1
+uid: user1
+userPassword: 2FederateM0re
+pf-connected-identity: auth-source=pf-local-identity:user-id=user1
+
+dn: uid=user2,ou=people,${USER_BASE_DN}
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: pf-connected-identities
+sn: User 2
+cn: User 2
+uid: user2
+userPassword: 2FederateM0re
+pf-connected-identity: auth-source=pf-local-identity:user-id=user2
